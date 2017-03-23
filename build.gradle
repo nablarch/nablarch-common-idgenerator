@@ -24,11 +24,14 @@ apply from: 'https://github.com/nablarch/nablarch-gradle-plugin/blob/develop/scr
 sourceCompatibility=JavaVersion.VERSION_1_6
 targetCompatibility=JavaVersion.VERSION_1_6
 
+configurations {
+  all*.exclude module: 'nablarch-test-support'
+  all*.exclude module: 'h2'
+}
+
 dependencies {
   compile "com.nablarch.framework:nablarch-core:${nablarchCoreVersion}"
 
-  testCompile 'com.nablarch.dev:nablarch-test-support:0.0.7'
-  
   testCompile 'junit:junit:4.12'
   testCompile 'org.hamcrest:hamcrest-all:1.3'
   
